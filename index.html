@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜市乒乓球 · 新春酒藏 🥂 2026</title>
+    <!-- Swiper CSS (滑動輪播專用) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        /* 整體新春基調：紅金搭配 + 專業夜市感 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', '微軟正黑體', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(165deg, #fff1da 0%, #ffdec2 100%);
+            color: #2c1b0f;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* 紅不讓 header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 15px;
+            background: url('data:image/svg+xml;utf8,<svg width="70" height="70" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg"><path d="M35 8 L42 28 L62 28 L47 42 L53 62 L35 50 L17 62 L23 42 L8 28 L28 28 Z" fill="%23f3b83e" opacity="0.25"/></svg>');
+            border-bottom: 8px solid #c62e2e;
+        }
+
+        h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            color: #ac2f2f;
+            text-shadow: 3px 3px 0 #ffcf7a, 5px 5px 0 #b64516;
+            letter-spacing: 3px;
+        }
+
+        .sub-head {
+            font-size: 1.7rem;
+            background: #fde4b3;
+            display: inline-block;
+            padding: 0.5rem 2.2rem;
+            border-radius: 60px;
+            margin: 15px 0 5px;
+            border: 3px solid #c14242;
+            box-shadow: 0 6px 0 #a13030;
+            font-weight: 700;
+        }
+
+        .firecracker {
+            font-size: 2.2rem;
+            word-spacing: 25px;
+            line-height: 1.5;
+        }
+
+        /* ===== 兩張商品架輪播 (IMG_1687 & IMG_1688) =====  */
+        .swiper {
+            width: 100%;
+            height: 550px;
+            border-radius: 45px 45px 25px 25px;
+            margin: 45px auto 35px;
+            box-shadow: 0 30px 40px -10px #b14a1c;
+            border: 6px solid #fdcd8b;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 使用您提供的兩張首頁輪播照片 (商品架) */
+        .slide-show1 {
+            background-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%), 
+            url('https://pingponn.github.io/IMG_1687.jpeg'); 
+        }
+        .slide-show2 {
+            background-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%), 
+            url('https://pingponn.github.io/IMG_1688.jpeg'); 
+        }
+
+        .carousel-label {
+            background: rgba(255, 220, 120, 0.9);
+            padding: 18px 35px;
+            border-radius: 70px 70px 20px 20px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #872222;
+            border: 4px solid #ffd966;
+            margin-bottom: 35px;
+            box-shadow: 0 12px 0 #963434;
+            backdrop-filter: blur(4px);
+            transform: rotate(-1deg);
+            letter-spacing: 4px;
+        }
+
+        /* ===== 精選酒瓶兩張 (自適應比例並排) ===== */
+        .wine-bottles-section {
+            margin: 60px 0 30px;
+        }
+        .section-subtitle {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            border-left: 15px solid #d43f3f;
+            padding-left: 25px;
+            background: linear-gradient(to right, #ffcd7e, #fff1d6);
+            font-weight: 800;
+            color: #712b2b;
+        }
+        .wine-bottles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;  /* 兩張並排 */
+            gap: 30px;
+            align-items: stretch;
+        }
+        .wine-card {
+            background: #fffcf0;
+            border-radius: 50px 20px 50px 20px;
+            padding: 30px 25px 25px;
+            box-shadow: 10px 10px 0 #b6491c, 15px 15px 20px rgba(150,60,0,0.3);
+            border: 4px solid #b84518;
+            text-align: center;
+            transition: 0.15s;
+        }
+        .wine-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0 #a33f0c, 20px 20px 30px #b6491c;
+        }
+        .wine-card img {
+            width: 100%;
+            height: auto;              /* 自適應比例 */
+            max-height: 380px;         
+            object-fit: contain;       /* 保持完整圖片不裁切 */
+            border-radius: 30px;
+            background: #faeacb;
+            padding: 10px;
+            border: 5px solid #f6c28b;
+            box-shadow: inset 0 0 0 2px white, 0 8px 0 #aa4f18;
+        }
+        .wine-card p {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: #fbdeb0;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            border: 2px solid #b6491c;
+            color: #2a1a0b;
+            margin-top: 20px;
+        }
+
+        /* 商品網格 (全品項) */
+        .section-title {
+            font-size: 2.8rem;
+            margin: 70px 0 30px;
+            border-left: 20px solid #d43f3f;
+            padding-left: 30px;
+            background: linear-gradient(to right, #ffcd7e, #fff1d6);
+            font-weight: 800;
+            color: #712b2b;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px 25px;
+        }
+
+        .product-card {
+            background: #fffdf5;
+            border-radius: 60px 20px 60px 20px;
+            padding: 25px 15px 20px;
+            text-align: center;
+            box-shadow: 9px 9px 0 #c9661e, 14px 14px 20px rgba(150, 60, 0, 0.3);
+            border: 3px solid #b84518;
+            transition: 0.15s;
+        }
+
+        .product-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 13px 13px 0 #b33f00, 20px 20px 30px #b6491c;
+        }
+
+        .product-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 40% 20% 40% 20%;
+            border: 6px solid #f8c48c;
+            margin-bottom: 15px;
+            background: #f7dbb5;
+            box-shadow: inset 0 0 0 3px white, 0 10px 0 #aa4f18;
+        }
+
+        .product-name {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: #fbdeb0;
+            display: inline-block;
+            padding: 0.3rem 1.8rem;
+            border-radius: 40px;
+            border: 2px solid #b6491c;
+            color: #2a1a0b;
+            margin-top: 10px;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            background: #f5c542;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #2b1708;
+            margin-top: 8px;
+        }
+
+        /* 關於我們 + 遊戲規則 (融合成立日期) */
+        .about-section {
+            background: #eac992;
+            background-image: repeating-linear-gradient(45deg, #ffaa5533 0px, #ffaa5533 12px, #ffeac233 12px, #ffeac233 24px);
+            border: 6px dashed #cd3b3b;
+            padding: 45px 55px;
+            border-radius: 140px 30px 140px 30px;
+            margin: 90px 0 45px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            box-shadow: 0 20px 0 #96421d;
+        }
+
+        .about-section span {
+            background: #fef7d2;
+            padding: 10px 30px;
+            border-radius: 60px;
+            color: #c92a2a;
+            border: 3px solid black;
+        }
+
+        .about-highlight {
+            font-size: 2.4rem;
+            background: #fff6cf;
+            display: inline-block;
+            padding: 0.5rem 2.5rem;
+            border-radius: 60px;
+            margin-top: 25px;
+            border: 4px solid #a64b2a;
+        }
+
+        .rule-box {
+            background: #e63946;
+            color: #ffefc0;
+            padding: 25px 35px;
+            border-radius: 80px 20px 80px 20px;
+            margin-top: 40px;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 5px solid #f9d57c;
+            box-shadow: 0 12px 0 #832121;
+            text-shadow: 2px 2px 0 #5c1e1e;
+        }
+        .rule-box small {
+            font-size: 1.5rem;
+            color: #ffffcc;
+        }
+
+        /* 頁尾 (Jack黃色連結) */
+        footer {
+            background: #2d1b0b;
+            color: #f7cfaa;
+            padding: 45px 20px 30px;
+            margin-top: 70px;
+            border-top: 18px double #f0bc4e;
+            font-size: 1.3rem;
+            text-align: center;
+            border-radius: 100px 100px 0 0;
+        }
+
+        .footer-copy {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .jack-link {
+            color: #ffd966;
+            font-weight: 900;
+            font-size: 2.1rem;
+            text-decoration: none;
+            border-bottom: 5px solid #f5c542;
+            padding-bottom: 3px;
+            margin: 0 8px;
+            transition: 0.2s;
+        }
+
+        .jack-link:hover {
+            color: #ffe68f;
+            border-bottom-color: #ffbb33;
+            filter: drop-shadow(0 0 8px #ffbb00);
+        }
+
+        .firework-emoji {
+            font-size: 2.2rem;
+            line-height: 2.3;
+            word-spacing: 20px;
+        }
+
+        .powered {
+            background: #4f2f16;
+            display: inline-block;
+            padding: 1rem 3rem;
+            border-radius: 120px;
+            margin: 25px 0 0;
+            border: 2px solid #e09a42;
+        }
+
+        /* 輪播導航按鈕 */
+        .swiper-button-next, .swiper-button-prev {
+            background: rgba(253, 215, 110, 0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid #b84518;
+            color: #b84518;
+            font-weight: 900;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 2rem;
+        }
+        .swiper-pagination-bullet-active {
+            background: #d64343;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2.8rem; }
+            .swiper { height: 380px; }
+            .wine-bottles-grid { grid-template-columns: 1fr; } /* 手機變一列 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 新春header 保留金蛇狂舞 -->
+        <div class="header">
+            <h1>🥂 夜市乒乓球 · 新春酒藏 🧧</h1>
+            <div class="sub-head">🎲 夜市最強 · 高級酒專場 🎲</div>
+            <div class="firecracker">🧨 金蛇狂舞 · 微醺發財 🐍✨</div>
+        </div>
+
+        <!-- ===== 首頁輪播：您的兩張商品架照片 (IMG_1687 & IMG_1688) ===== -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide-show1">
+                    <div class="carousel-label">
+                        🛒 新春商品架 · 滿載好禮
+                    </div>
+                </div>
+                <div class="swiper-slide slide-show2">
+                    <div class="carousel-label">
+                        🧧 夜市乒乓球 · 通通有獎
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- ===== 精選酒瓶兩張 (IMG_1684 & IMG_1685) 自適應比例並排 ===== -->
+        <div class="wine-bottles-section">
+            <h2 class="section-subtitle">🥃 精選酒瓶 · 限量威士忌</h2>
+            <div class="wine-bottles-grid">
+                <div class="wine-card">
+                    <img src="https://pingponn.github.io/IMG_1684.jpeg" alt="DukeBlue 酵母威士忌">
+                    <p># 1684  DukeBlue</p>
+                </div>
+                <div class="wine-card">
+                    <img src="https://pingponn.github.io/IMG_1685.jpeg" alt="精選威士忌">
+                    <p># 1685  原酒力量</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商品陳列區 (您指定的全品項) -->
+        <h2 class="section-title">✨ 新春百寶 · 金蛇迎財 ✨</h2>
+        <div class="product-grid">
+            <!-- 高級酒品 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1584225064785-c62a8b43d148?w=400&auto=format" alt="高級酒">
+                <div class="product-name">🥃 高級酒</div>
+                <div class="price-tag">春節特釀</div>
+            </div>
+            <!-- 3C -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&auto=format" alt="3C產品">
+                <div class="product-name">📱 3C</div>
+                <div class="price-tag">飆速新機</div>
+            </div>
+            <!-- 煙 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1595348020946-8b1a8146f74b?w=400&auto=format" alt="煙">
+                <div class="product-name">🚬 煙</div>
+                <div class="price-tag">迎春特選</div>
+            </div>
+            <!-- 無人機 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1507582020474-9a35b7d455d7?w=400&auto=format" alt="無人機">
+                <div class="product-name">🚁 無人機</div>
+                <div class="price-tag">高空發財</div>
+            </div>
+            <!-- 公仔 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1608889476561-624bcfeb8902?w=400&auto=format" alt="公仔">
+                <div class="product-name">🧸 公仔</div>
+                <div class="price-tag">限量收藏</div>
+            </div>
+            <!-- 第二個無人機 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&auto=format" alt="無人機二代">
+                <div class="product-name">🚁 無人機+</div>
+                <div class="price-tag">雙倍喜氣</div>
+            </div>
+            <!-- 手錶 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&auto=format" alt="手錶">
+                <div class="product-name">⌚ 手錶</div>
+                <div class="price-tag">時來運轉</div>
+            </div>
+            <!-- 7-11 禮品卡 -->
+            <div class="product-card">
+                <img class="product-img" src="https://images.unsplash.com/photo-1608043152269-423cf2252bb9?w=400&auto=format" alt="7-11禮品卡">
+                <div class="product-name">🎫 7-11 禮品卡</div>
+                <div class="price-tag">好運滿額</div>
+            </div>
+        </div>
+
+        <!-- 關於我們 + 遊戲規則 + 成立日期 2026/2/16 (完整呈現) -->
+        <div class="about-section">
+            🏮 <span>關於我們 · 正港夜市規矩</span> 🏮 <br/>
+            <div class="about-highlight">
+                🐍 夜市乒乓球 正式成立於 <strong style="color:#b13e3e;">2026 年 2 月 16 日</strong> 🐍
+            </div>
+            <div style="margin-top: 30px; font-size: 1.7rem; background: #ffefc9; padding: 25px; border-radius: 80px; border: 3px solid #b6491c;">
+                全台唯一酒吧風乒乓球 · 高級酒品、3C、潮流公仔、無人機派對<br/>
+                還有手錶摸彩 & 7-11禮品卡！過年期間天天樂 🧨
+            </div>
+
+            <!-- 遊戲規則：只能用丟的，不能拋或彈進去 -->
+            <div class="rule-box">
+                🏓 遊戲規則 · 硬派乒乓 🏓<br/>
+                <small>⚡ 只能用丟的 · 不能拋或彈進去 ⚡</small><br/>
+                ✦ 一手交酒一手丟球 · 落地就重來 ✦
+            </div>
+        </div>
+    </div> <!-- container 結束 -->
+
+    <!-- 頁尾 (含黃色Jack連結 + 版權) -->
+    <footer>
+        <div class="footer-copy">
+            Copyright © 2026 Jack乒乓球 All Rights Reserved.
+        </div>
+        <div class="powered">
+            Powered by <a href="https://jack0852.github.io" class="jack-link" target="_blank">Jack</a> 
+            <span style="color: #f5d742;"> · 迎春納福 · 🧨 金蛇狂舞 🧨</span>
+        </div>
+        <div style="margin-top: 35px; font-size: 1.5rem; border-top: 2px dashed #c86a2c; padding-top: 25px;">
+            © 2026 本網站由 Jack 維護，網站盡量專業喜慶 · 酒香夜市
+        </div>
+        <div class="firework-emoji">
+            ✨ 🥂 🧧 🐍 🧨 🥂 ✨
+        </div>
+    </footer>
+
+    <!-- Swiper JS 輪播啟用 + 滑動功能 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 600,
+        });
+    </script>
+</body>
+</html>
