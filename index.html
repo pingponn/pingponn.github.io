@@ -9,76 +9,136 @@
 body{
     margin:0;
     font-family:"Microsoft JhengHei",sans-serif;
-    background:linear-gradient(135deg,#7a0000,#b30000);
+    background:linear-gradient(135deg,#5c0000,#990000);
     color:white;
+    overflow-x:hidden;
 }
 
-/* 頁首 */
+/* 背景煙火動畫 */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(circle, rgba(255,215,0,0.6) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,0,0,0.5) 2px, transparent 3px);
+    background-size:150px 150px;
+    animation:firework 6s linear infinite;
+    z-index:-1;
+}
+@keyframes firework{
+    from{background-position:0 0, 75px 75px;}
+    to{background-position:150px 150px, 225px 225px;}
+}
+
+/* 金色流光 */
+.gold-text{
+    background:linear-gradient(90deg,#ffd700,#fff8dc,#ffd700);
+    background-size:200% auto;
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    animation:shine 3s linear infinite;
+}
+@keyframes shine{
+    to{background-position:200% center;}
+}
+
+/* Header */
 header{
     text-align:center;
-    padding:25px;
-    background:linear-gradient(to right,#a00000,#ff1a1a);
-    box-shadow:0 0 25px gold;
+    padding:30px;
+    background:linear-gradient(to right,#8b0000,#ff0000);
+    box-shadow:0 0 30px gold;
 }
 header h1{
     margin:0;
-    font-size:34px;
-    letter-spacing:3px;
-}
-header p{
-    color:gold;
-    font-size:18px;
+    font-size:36px;
+    letter-spacing:4px;
 }
 
 /* 輪播 */
 .slider{
+    position:relative;
+    overflow:hidden;
+}
+.slides{
     display:flex;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
+    transition:transform 0.6s ease-in-out;
 }
 .slide{
     min-width:100%;
-    scroll-snap-align:center;
 }
 .slide img{
     width:100%;
-    height:450px;
+    height:480px;
     object-fit:cover;
+}
+
+/* 圓點 */
+.dots{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+}
+.dot{
+    height:12px;
+    width:12px;
+    margin:0 5px;
+    background:#fff;
+    border-radius:50%;
+    display:inline-block;
+    cursor:pointer;
+    opacity:0.5;
+}
+.dot.active{
+    opacity:1;
+    background:gold;
 }
 
 /* 區塊 */
 .section{
-    padding:60px 20px;
+    padding:80px 20px;
     text-align:center;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+.section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 .section h2{
-    color:gold;
-    font-size:28px;
-    margin-bottom:30px;
+    font-size:30px;
+    margin-bottom:40px;
 }
 
 /* 商品卡片 */
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
 }
 .card{
     background:white;
     color:black;
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 0 25px gold;
-    transition:0.3s;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 0 30px gold;
+    transition:0.4s;
 }
 .card:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 .card img{
     width:100%;
     height:auto;
     object-fit:contain;
-    border-radius:12px;
+    border-radius:15px;
 }
 
 /* 規則 */
@@ -86,12 +146,6 @@ header p{
     background:#111;
     border-top:5px solid gold;
     border-bottom:5px solid gold;
-}
-.rules ul{
-    list-style:none;
-    padding:0;
-    line-height:2;
-    font-size:17px;
 }
 
 /* 評價 */
@@ -105,22 +159,16 @@ header p{
     box-shadow:0 0 30px gold;
 }
 
-/* 關於我們 */
-.about{
-    background:#1a1a1a;
-}
-
-/* 頁尾 */
+/* Footer */
 footer{
     text-align:center;
     padding:30px;
     background:black;
-    font-size:14px;
 }
 footer a{
     color:yellow;
-    text-decoration:none;
     font-weight:bold;
+    text-decoration:none;
 }
 </style>
 </head>
@@ -128,23 +176,29 @@ footer a{
 <body>
 
 <header>
-    <h1>🎯 夜市乒乓球 🎯</h1>
-    <p>🧨 迎春納福 · 金蛇狂舞 🧨</p>
+    <h1 class="gold-text">🎯 夜市乒乓球 🎯</h1>
+    <p class="gold-text">🧨 迎春納福 · 金蛇狂舞 🧨</p>
 </header>
 
-<!-- 首頁輪播 -->
+<!-- 自動輪播 -->
 <div class="slider">
-    <div class="slide">
-        <img src="https://pingponn.github.io/IMG_1687.jpeg">
+    <div class="slides" id="slides">
+        <div class="slide">
+            <img src="https://pingponn.github.io/IMG_1687.jpeg">
+        </div>
+        <div class="slide">
+            <img src="https://pingponn.github.io/IMG_1688.jpeg">
+        </div>
     </div>
-    <div class="slide">
-        <img src="https://pingponn.github.io/IMG_1688.jpeg">
+    <div class="dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
     </div>
 </div>
 
-<!-- 精選酒瓶 -->
+<!-- 酒瓶 -->
 <section class="section">
-    <h2>🍷 精選酒瓶專區 🍷</h2>
+    <h2 class="gold-text">🍷 精選酒瓶專區 🍷</h2>
     <div class="products">
         <div class="card">
             <img src="https://pingponn.github.io/IMG_1684.jpeg">
@@ -157,65 +211,35 @@ footer a{
     </div>
 </section>
 
-<!-- 商品架展示 -->
+<!-- 手鍊 -->
 <section class="section">
-    <h2>🏆 豪華商品架展示 🏆</h2>
+    <h2 class="gold-text">💎 純金 · 純銀 手鍊 💎</h2>
     <div class="products">
         <div class="card">
-            <img src="https://pingponn.github.io/IMG_1688.jpeg">
-            <h3>現場豪華獎品展示</h3>
+            <img src="https://pingponn.github.io/IMG_1694.jpeg">
+            <h3>純金手鍊</h3>
+        </div>
+        <div class="card">
+            <img src="https://pingponn.github.io/IMG_1694.jpeg">
+            <h3>純銀手鍊</h3>
         </div>
     </div>
 </section>
 
 <!-- 遊戲規則 -->
 <section class="section rules">
-    <h2>📜 遊戲規則 📜</h2>
-    <ul>
-        <li>1️⃣ 僅能使用「丟」的方式投擲乒乓球。</li>
-        <li>2️⃣ 禁止高拋式投擲。</li>
-        <li>3️⃣ 禁止彈桌、反彈或借物彈進。</li>
-        <li>4️⃣ 球需直接落入杯中方算成功。</li>
-        <li>5️⃣ 成功次數達標即可獲得對應獎品。</li>
-        <li>6️⃣ 主辦單位保有最終解釋權。</li>
-    </ul>
+    <h2 class="gold-text">📜 遊戲規則 📜</h2>
+    <p>僅能用丟的方式投擲，不得拋或彈進，需直接落入杯中才算成功。</p>
 </section>
 
 <!-- 顧客評價 -->
-<section class="section" style="background:linear-gradient(135deg,#990000,#cc0000); border-top:5px solid gold; border-bottom:5px solid gold;">
-    <h2>🌟 顧客真實評價 🌟</h2>
-
+<section class="section">
+    <h2 class="gold-text">🌟 顧客真實評價 🌟</h2>
     <div class="review-box">
-        <img src="https://pingponn.github.io/IMG_1692.jpeg" 
-             style="width:100%; height:auto; border-radius:15px; margin-bottom:25px;">
-
+        <img src="https://pingponn.github.io/IMG_1692.jpeg" style="width:100%; border-radius:15px;">
         <h3>★★★★★ 5.0 滿分推薦</h3>
-
-        <p style="line-height:1.8; font-size:16px;">
-            「現場氣氛超級熱鬧，獎品真的高級不是隨便擺的！
-            酒品、3C、無人機通通都有，而且規則公平透明，
-            玩起來超刺激，成功那一刻真的超有成就感！
-            新年來挑戰真的超有氣氛！」
-        </p>
-
-        <p style="font-weight:bold; margin-top:15px;">
-            — 現場挑戰成功玩家
-        </p>
+        <p>現場氣氛超熱鬧，獎品真的豪華又專業，新年來玩超有感！</p>
     </div>
-</section>
-
-<!-- 關於我們 -->
-<section class="section about">
-    <h2>關於我們</h2>
-    <p>
-        夜市乒乓球成立於2026/02/16，
-        以專業、公平、公正為核心理念，
-        致力打造高品質夜市娛樂品牌。
-        提供高級酒品、3C產品、無人機、精品手錶、
-        公仔與禮品卡等豪華獎項，
-        結合熱鬧新春氛圍，讓每位挑戰者都能享受榮耀時刻。
-        未來將持續升級規模，打造全台最具品牌力的夜市乒乓球活動。
-    </p>
 </section>
 
 <footer>
@@ -223,6 +247,39 @@ footer a{
     Powered by <a href="https://jack0852.github.io" target="_blank">Jack</a> · 迎春納福 · 🧨 金蛇狂舞 🧨 <br>
     © 2026 本網站由 Jack 維護
 </footer>
+
+<script>
+let index=0;
+const slides=document.getElementById("slides");
+const dots=document.querySelectorAll(".dot");
+
+function showSlide(i){
+    index=i;
+    slides.style.transform="translateX(" + (-i*100) + "%)";
+    dots.forEach(dot=>dot.classList.remove("active"));
+    dots[i].classList.add("active");
+}
+
+function currentSlide(i){
+    showSlide(i);
+}
+
+setInterval(()=>{
+    index=(index+1)%2;
+    showSlide(index);
+},4000);
+
+/* 滾動動畫 */
+const sections=document.querySelectorAll(".section");
+window.addEventListener("scroll",()=>{
+    sections.forEach(sec=>{
+        const top=sec.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
