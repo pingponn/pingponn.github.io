@@ -48,7 +48,7 @@ header p{
 
 /* 區塊 */
 .section{
-    padding:50px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 .section h2{
@@ -60,15 +60,15 @@ header p{
 /* 商品卡片 */
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
 }
 .card{
     background:white;
     color:black;
-    border-radius:15px;
-    padding:15px;
-    box-shadow:0 0 20px gold;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 0 25px gold;
     transition:0.3s;
 }
 .card:hover{
@@ -76,12 +76,12 @@ header p{
 }
 .card img{
     width:100%;
-    height:auto;      /* 自適應比例 */
+    height:auto;
     object-fit:contain;
-    border-radius:10px;
+    border-radius:12px;
 }
 
-/* 遊戲規則 */
+/* 規則 */
 .rules{
     background:#111;
     border-top:5px solid gold;
@@ -91,6 +91,18 @@ header p{
     list-style:none;
     padding:0;
     line-height:2;
+    font-size:17px;
+}
+
+/* 評價 */
+.review-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    color:black;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 0 30px gold;
 }
 
 /* 關於我們 */
@@ -101,7 +113,7 @@ header p{
 /* 頁尾 */
 footer{
     text-align:center;
-    padding:25px;
+    padding:30px;
     background:black;
     font-size:14px;
 }
@@ -133,13 +145,11 @@ footer a{
 <!-- 精選酒瓶 -->
 <section class="section">
     <h2>🍷 精選酒瓶專區 🍷</h2>
-
     <div class="products">
         <div class="card">
             <img src="https://pingponn.github.io/IMG_1684.jpeg">
             <h3>高級酒品 A</h3>
         </div>
-
         <div class="card">
             <img src="https://pingponn.github.io/IMG_1685.jpeg">
             <h3>高級酒品 B</h3>
@@ -150,7 +160,6 @@ footer a{
 <!-- 商品架展示 -->
 <section class="section">
     <h2>🏆 豪華商品架展示 🏆</h2>
-
     <div class="products">
         <div class="card">
             <img src="https://pingponn.github.io/IMG_1688.jpeg">
@@ -163,13 +172,36 @@ footer a{
 <section class="section rules">
     <h2>📜 遊戲規則 📜</h2>
     <ul>
-        <li>1️⃣ 只能使用「丟」的方式投擲乒乓球。</li>
-        <li>2️⃣ 禁止使用拋物線高拋動作。</li>
-        <li>3️⃣ 禁止彈桌、反彈、借物彈進。</li>
+        <li>1️⃣ 僅能使用「丟」的方式投擲乒乓球。</li>
+        <li>2️⃣ 禁止高拋式投擲。</li>
+        <li>3️⃣ 禁止彈桌、反彈或借物彈進。</li>
         <li>4️⃣ 球需直接落入杯中方算成功。</li>
         <li>5️⃣ 成功次數達標即可獲得對應獎品。</li>
-        <li>6️⃣ 主辦方保有最終解釋權。</li>
+        <li>6️⃣ 主辦單位保有最終解釋權。</li>
     </ul>
+</section>
+
+<!-- 顧客評價 -->
+<section class="section" style="background:linear-gradient(135deg,#990000,#cc0000); border-top:5px solid gold; border-bottom:5px solid gold;">
+    <h2>🌟 顧客真實評價 🌟</h2>
+
+    <div class="review-box">
+        <img src="https://pingponn.github.io/IMG_1692.jpeg" 
+             style="width:100%; height:auto; border-radius:15px; margin-bottom:25px;">
+
+        <h3>★★★★★ 5.0 滿分推薦</h3>
+
+        <p style="line-height:1.8; font-size:16px;">
+            「現場氣氛超級熱鬧，獎品真的高級不是隨便擺的！
+            酒品、3C、無人機通通都有，而且規則公平透明，
+            玩起來超刺激，成功那一刻真的超有成就感！
+            新年來挑戰真的超有氣氛！」
+        </p>
+
+        <p style="font-weight:bold; margin-top:15px;">
+            — 現場挑戰成功玩家
+        </p>
+    </div>
 </section>
 
 <!-- 關於我們 -->
@@ -178,17 +210,16 @@ footer a{
     <p>
         夜市乒乓球成立於2026/02/16，
         以專業、公平、公正為核心理念，
-        打造高品質夜市娛樂體驗。
-        我們提供高級酒品、3C產品、無人機、精品手錶、
-        公仔、禮品卡等多元豪華獎品，
-        讓每位參與者都能在新春佳節中，
-        感受熱血、刺激與榮耀的勝利時刻。
+        致力打造高品質夜市娛樂品牌。
+        提供高級酒品、3C產品、無人機、精品手錶、
+        公仔與禮品卡等豪華獎項，
+        結合熱鬧新春氛圍，讓每位挑戰者都能享受榮耀時刻。
         未來將持續升級規模，打造全台最具品牌力的夜市乒乓球活動。
     </p>
 </section>
 
 <footer>
-    Copyright © 2026 夜市乒乓球 All Rights Reserved.<br>
+    Copyright © 2026 Jack乒乓球 All Rights Reserved.<br>
     Powered by <a href="https://jack0852.github.io" target="_blank">Jack</a> · 迎春納福 · 🧨 金蛇狂舞 🧨 <br>
     © 2026 本網站由 Jack 維護
 </footer>
