@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - 夜市乒乓球</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+/* 左上角標題 */
+.header{
+    position:absolute;
+    top:20px;
+    left:30px;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:2px;
+    color:#00f2ff;
+}
+
+/* 中間內容 */
+.container{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* 404大字 */
+.error-code{
+    font-size:140px;
+    font-weight:900;
+    background: linear-gradient(90deg,#00f2ff,#00ff88,#00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+/* 發光動畫 */
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #00f2ff,0 0 20px #00f2ff;
+    }
+    to{
+        text-shadow:0 0 30px #00ff88,0 0 60px #00ff88;
+    }
+}
+
+.message{
+    font-size:20px;
+    margin-top:20px;
+    opacity:0.8;
+}
+
+.btn{
+    margin-top:30px;
+    padding:12px 30px;
+    background:linear-gradient(90deg,#00f2ff,#00ff88);
+    border:none;
+    border-radius:30px;
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #00ff88;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">夜市乒乓球</div>
+
+<div class="container">
+    <div class="error-code">404</div>
+    <div class="message">找不到頁面，可能被乒乓球打飛了 🏓</div>
+    <a href="/" class="btn">返回首頁</a>
+</div>
+
+</body>
+</html>
